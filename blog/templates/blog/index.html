@@ -1,0 +1,14 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'blog/index.css' %}" />
+
+{% if category_list %}
+<h1>Category List</h1>
+    <ul>
+    {% for category in category_list %}
+        <li><a href="{% url 'c_detail' category.id %}">{{ category.category }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No category are available.</p>
+{% endif %}
